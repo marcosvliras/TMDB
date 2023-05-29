@@ -1,4 +1,6 @@
 from src.drivers.requester_spy import RequesterSpy
+from src.stages.extract import ExtractMovies
+from src.stages.transform import Tranformer
 import requests
 import json
 import pprint
@@ -18,6 +20,8 @@ import pprint
 
 # pprint.pprint(response.json())
 
-requester = RequesterSpy()
-data = requester.request()
-print(data)
+api_key = "teste"
+ex = ExtractMovies(api_key, RequesterSpy)
+data = ex.extract(qtd_movies=2)
+data = Tranformer().transform(data)
+pprint.pprint(data)

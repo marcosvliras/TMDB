@@ -9,7 +9,7 @@ class RequesterSpy(RequesterInterface):
 
     def request(self, url: str = None, headers: Dict = None) -> Dict:
         """Request."""
-        with open("src/drivers/data.json") as file:
+        with open("src/drivers/mocks/data.json") as file:
             data = json.load(file)
 
         random_ = random.randint(0, 4)
