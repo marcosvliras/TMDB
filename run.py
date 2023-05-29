@@ -1,6 +1,7 @@
 from src.stages.extract import ExtractMovies
+from src.drivers import Requester, RequesterSpy
 
 api_key = "a773e9c7af7861e875f8f9d6ada80d36"
-ex = ExtractMovies(api_key)
-r = ex.extract(qtd_movies=2)
+ex = ExtractMovies(api_key, Requester)
+r = ex.extract(qtd_movies=1)
 print(r)
