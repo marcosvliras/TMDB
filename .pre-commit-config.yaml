@@ -1,7 +1,17 @@
 repos:
 -   repo: local
     hooks:
-      - id: pydocstyle
+    - id: black
+      name: black
+      entry: python3 -m black . -l79
+      language: system
+      stages: [commit]
+      types: [python]
+-   repo: local
+    hooks:
+      - id: pydocstyle        
+        args:
+        - --ignore=D100,D104,D203,D213,D413
         name: pydocstyle
         entry: pydocstyle
         language: system
