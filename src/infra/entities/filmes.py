@@ -7,7 +7,7 @@ class Filmes(Base):
 
     __tablename__ = "filmes"
 
-    idx = Column(Integer)
+    idx = Column(Integer, primary_key=True)
     title = Column(String)
     genres = Column(String)
     budget = Column(Integer)

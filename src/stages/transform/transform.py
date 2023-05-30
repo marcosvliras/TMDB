@@ -50,7 +50,7 @@ class Tranformer:
             genres = []
             for genre in data:
                 genres.append(genre["name"])
-            return genres
+            return f"{genres}"
         elif isinstance(data, Dict):
             return [data["name"]]
         else:
