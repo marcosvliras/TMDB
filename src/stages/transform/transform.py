@@ -1,4 +1,5 @@
-from typing import Dict, List
+from typing import Dict, List, Union
+import pprint
 
 
 class Tranformer:
@@ -31,12 +32,13 @@ class Tranformer:
             select_data["release_date"] = element["release_date"]
             select_data["status"] = element["status"]
             select_data["runtime"] = element["runtime"]
-            final_data[idx] = select_data
+            data = select_data.copy()
+            final_data.update({idx: data})
         return final_data
 
     @staticmethod
-    def __transform_genres(data: List[Dict]):
-        """Get the first genres name as the main genres.
+    def __transform_genres(data: Union[List[Dict], Dict]) -> List:
+        """Get the genres name.
 
         Parameters
         ----------
@@ -44,4 +46,12 @@ class Tranformer:
             Example
             data = [{'id': 80, 'name': 'Crime'}, {'id': 35, 'name': 'Comedy'}]
         """
-        return data[0]["name"]
+        if isinstance(data, list):
+            genres = []
+            for genre in data:
+                genres.append(genre["name"])
+            return genres
+        elif isinstance(data, Dict):
+            return [data["name"]]
+        else:
+            raise NameError()
