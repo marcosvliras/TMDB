@@ -12,8 +12,6 @@ from src.stages.visualize import (
 import dash
 from dash import dcc, html
 import plotly.express as px
-from src.main import MainPipeline
-import time
 
 
 conn = DBConnection()
@@ -22,8 +20,6 @@ engine = conn.get_engine()
 # get data from database
 consulta = "SELECT * FROM filmes"
 df = pd.read_sql(consulta, engine)
-
-print(df)
 
 # prepare data to visualization
 df_saldo, df_genres = prep_visualization(df)
