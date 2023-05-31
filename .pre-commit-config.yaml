@@ -24,14 +24,14 @@ repos:
         language: system
         stages: [commit]
         types: [python]
--   repo: local
-    hooks:
-      - id: requirements
-        name: requirements
-        entry: bash -c 'python3 -m pip freeze > requirements.txt; git add requirements.txt'
-        language: system
-        pass_filenames: false
-        stages: [commit]
+# -   repo: local
+#     hooks:
+#       - id: requirements
+#         name: requirements
+#         entry: bash -c 'python3 -m pip freeze > requirements.txt; git add requirements.txt'
+#         language: system
+#         pass_filenames: false
+#         stages: [commit]
 -   repo: local
     hooks:
     - id: pytest

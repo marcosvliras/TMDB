@@ -28,12 +28,23 @@ responsabilidades
 ```
 python3 -m pip install -r requirements.txt
 ```
-4. Rode o arquivo `run.py`.
+4. Rode o arquivo `run.py` `python3 run.py` ou `python run.py`.
 - Após isso, é esperado que:
     - 1. Um arquivo `myDb.db` seja criado.
     - 2. Uma mensagem `Dados carregados com sucesso!` apareça
     no seu terminal
-    - 3. Apareça uma url do Flask como essa `http://127.0.0.1:8050/`. Basta copiar esse link e colocar no seu navegador.
+    - 3. Apareça uma url do Flask como essa `http://127.0.0.1:8000/`. Basta copiar esse link e colocar no seu navegador.
+
+5. Caso Queira rodar com **DOCKER** rode os seguintes comandos: 
+    ```
+    docker build -t python-data-viz:v01 .
+    ```
+
+    ```
+    docker run --name container-dataviz -p 8000:8000 -d python-data-viz:v01
+    ```
+
+Então depois de 1 minuto mais ou menos (tempo que dura o processo) podes acessar seu localhost na porta 8000 e terá acesso ao mesmo dashboard.
 # 4. Descrições
 ## 4.1 Colunas
 
