@@ -15,6 +15,7 @@ class FilmesRepo(RepoInterface):
         with self.__connectionHandler() as db:
             try:
                 data = db.session.query(Filmes).all()
+                return data
             except NoResultFound:
                 raise None
             except Exception as e:
